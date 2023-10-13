@@ -1,9 +1,8 @@
-// Sample data for forum posts (you can replace this with dynamic data)
+
 const samplePosts = [
     { username: "Ajay", content: "I just completed a 5-mile run today!", Upvotes: 0, Downvotes: 0 },
 ];
 
-// Function to display forum posts
 function displayPosts(posts) {
     const forumSection = document.querySelector(".forum");
     forumSection.innerHTML = "";
@@ -23,19 +22,19 @@ function displayPosts(posts) {
     });
 }
 
-// Function to handle upvoting a post
+
 function upvoteP(index) {
     samplePosts[index].Upvotes++;
     displayPosts(samplePosts);
 }
 
-// Function to handle downvoting a post
+
 function downvoteP(index) {
     samplePosts[index].Downvotes++;
     displayPosts(samplePosts);
 }
 
-// Function to handle form submission
+
 document.getElementById("postForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -43,17 +42,17 @@ document.getElementById("postForm").addEventListener("submit", function (e) {
     const postContent = document.getElementById("postContent").value;
 
     if (username && postContent) {
-        // Create a new post object
+        
         const newPost = { username, content: postContent, Upvotes: 0, Downvotes: 0 };
 
-        // Add the new post to the samplePosts array (or send it to a server)
+        
         samplePosts.push(newPost);
 
-        // Clear the form
+        
         document.getElementById("username").value = "";
         document.getElementById("postContent").value = "";
 
-        // Refresh the forum to display the new post
+        
         displayPosts(samplePosts);
     }
 });
